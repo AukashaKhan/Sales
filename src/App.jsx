@@ -10,12 +10,12 @@ function App() {
 
       {/* Banner Image */}
       <div className="banner">
-        <img src="/images/Center_Image.jpeg" alt="Banner Image" />
+        <img src="images/Center_Image.jpeg" alt="Banner Image" />
       </div>
 
       {/* Restaurant Info */}
       <div className="restaurant-info">
-        <img src="/images/Logo.png" className="Logo" alt="Logo" />
+        <img src="images/Logo.png" className="Logo" alt="Logo" />
         <div className="restaurant-name">Al-Habib Restaurant</div>
         <div className="actions">
           <button className="btn">🔔 Follow</button>
@@ -56,7 +56,7 @@ function App() {
       <h3 className="section-title">Card Offers</h3>
       <div className="offers">
         <div className="offer-card">
-          <img src="/images/allied.png" alt="Allied Bank" />
+          <img src="images/allied.png" alt="Allied Bank" />
           <div className="offer-info">
             <div className="offer-title">Allied Bank</div>
             <div className="offer-subtitle">2 Card Offers</div>
@@ -64,7 +64,7 @@ function App() {
           <div className="offer-badge">40%</div>
         </div>
         <div className="offer-card">
-          <img src="/images/hbl.png" alt="HBL" />
+          <img src="images/hbl.png" alt="HBL" />
           <div className="offer-info">
             <div className="offer-title">HBL Islamic Bank Limited</div>
             <div className="offer-subtitle">1 Card Offer</div>
