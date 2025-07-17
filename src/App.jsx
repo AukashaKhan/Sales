@@ -8,6 +8,8 @@ function App() {
       {/* Navbar Component */}
       <Navbar />
 
+      
+
       {/* Banner Image */}
       <div className="banner">
         <img src="/images/Center_Image.jpeg" alt="Banner Image" />
