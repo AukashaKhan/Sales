@@ -21,7 +21,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-left">
-          <img src="public/images/Logo.png" alt="Logo" className="navbar-logo" />
+          <img src="images/Logo.png" alt="Logo" className="navbar-logo" />
           <input type="text" placeholder="Search..." className="search-box" />
         </div>
 
