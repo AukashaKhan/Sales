@@ -1,12 +1,21 @@
+/* Sticky Navbar */
 .navbar {
+  position: fixed;          /* Makes it sticky */
+  top: 0;                   /* Stick to the top */
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
   z-index: 1000;
+}
+
+/* Push content down so it's not hidden behind navbar */
+body {
+  padding-top: 70px; /* Adjust based on navbar height */
 }
 
 .navbar-logo {
@@ -41,11 +50,11 @@
   cursor: pointer;
 }
 
-/* Sidebar (right side) */
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -260px; /* hidden offscreen on right */
+  right: -260px;
   height: 100%;
   width: 250px;
   background-color: white;
@@ -58,7 +67,7 @@
 }
 
 .sidebar.open {
-  right: 0; /* slide in from right */
+  right: 0;
 }
 
 .close-btn {
@@ -89,5 +98,26 @@
 
   .hamburger {
     display: block;
+  }
+}
+
+/* Dropdown visibility rules */
+.dropdown-mobile {
+  display: none;
+}
+
+.dropdown-desktop {
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .dropdown-desktop {
+    display: none;
+  }
+
+  .dropdown-mobile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 }

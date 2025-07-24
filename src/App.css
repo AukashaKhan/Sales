@@ -5,195 +5,112 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* index.css or App.css */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body {
   width: 100%;
-  overflow-x: hidden; /* ⛔ Prevent horizontal scroll */
-}
-
-body {
+  overflow-x: hidden;
   background-color: #fff;
-  padding: 10px;
 }
 
+/* Banner */
+.banner {
+  width: 100%;
+  margin-bottom: 12px;
+}
 .banner img {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  margin-bottom: 10px;
+  display: block;
+  border-radius: 0;
 }
 
-.restaurant-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+/* Dropdown only visible on mobile */
+.dropdown-mobile {
+  display: none;
+  margin: 10px auto;
+}
+@media (max-width: 768px) {
+  .dropdown-mobile {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.restaurant-logo {
-  height: 50px;
-  width: 50px;
-  border-radius: 8px;
+/* Restaurant List */
+.restaurant-list {
+  display: grid;
+  gap: 15px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.restaurant-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-left: 10px;
-  flex: 1;
+/* Desktop: 2 columns, Mobile: 1 column */
+@media (min-width: 769px) {
+  .restaurant-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .restaurant-list {
+    grid-template-columns: 1fr;
+  }
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
-}
-
-.btn {
-  padding: 6px 10px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.tabs {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  margin: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.tab {
-  padding: 8px 12px;
-  white-space: nowrap;
-  border-radius: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  font-size: 0.9rem;
-}
-
-.tab.active {
-  background-color: #fff;
-  border: 1px solid #ccc;
-}
-
-.description {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.stat {
-  flex: 1 1 45%;
-  background: #eee;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-}
-
-.stat-value {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: #333;
-}
-
-.blue {
-  background-color: #2c3e50;
-  color: white;
-}
-.red {
-  background-color: #c0392b;
-  color: white;
-}
-.navy {
-  background-color: #34495e;
-  color: white;
-}
-
-.section-title {
-  font-size: 1.1rem;
-  margin: 10px 0;
-}
-
-.offers {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.offer-card {
-  background: #fff;
+.restaurant-card {
   display: flex;
   align-items: center;
   padding: 10px;
+  background: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
-.offer-card img {
+.restaurant-card-logo {
   height: 40px;
   width: 40px;
-  object-fit: contain;
-}
-
-.offer-info {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.offer-title {
-  font-weight: bold;
-  font-size: 0.95rem;
-}
-
-.offer-subtitle {
-  font-size: 0.85rem;
-  color: gray;
-}
-
-.offer-badge {
-  background-color: #8b0000;
-  color: white;
-  font-size: 0.85rem;
-  padding: 4px 8px;
   border-radius: 6px;
+  margin-right: 10px;
+  object-fit: cover;
 }
 
-@media (max-width: 500px) {
-  .restaurant-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+.restaurant-card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-card-name {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.restaurant-card-desc {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
+  .restaurant-card {
+    padding: 8px;
   }
-  .actions {
-    width: 100%;
-    justify-content: flex-start;
+  .restaurant-card-logo {
+    height: 35px;
+    width: 35px;
   }
-  .tabs {
-    flex-wrap: wrap;
+  .restaurant-card-name {
+    font-size: 0.95rem;
   }
-  .stats .stat {
-    flex: 1 1 100%;
+  .restaurant-card-desc {
+    font-size: 0.75rem;
   }
 }

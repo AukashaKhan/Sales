@@ -1,76 +1,51 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 import Dropdown from './components/Dropdown';
+import './App.css';
 
 function App() {
+  const allRestaurants = [
+    { name: 'Al-Habib Restaurant', description: 'The ultimate combination of food and fun.', logo: '/images/Logo.png' },
+    { name: 'Shaheen Shinwari', description: 'Authentic taste of the North.', logo: '/images/Logo.png' },
+    { name: 'Kolachi Restaurant', description: 'Fine dining by the sea.', logo: '/images/Logo.png' },
+    { name: 'Student Biryani', description: 'Legendary biryani for everyone.', logo: '/images/Logo.png' },
+    { name: 'Javed Nihari', description: 'Iconic breakfast spot.', logo: '/images/Logo.png' },
+    { name: 'Bundu Khan', description: 'BBQ at its best.', logo: '/images/Logo.png' },
+    { name: 'Xander\'s', description: 'Modern casual dining.', logo: '/images/Logo.png' },
+    { name: 'Del Frio', description: 'Desserts & comfort food.', logo: '/images/Logo.png' },
+    { name: 'Kolachi Restaurant', description: 'Fine dining by the sea.', logo: '/images/Logo.png' },
+    { name: 'Student Biryani', description: 'Legendary biryani for everyone.', logo: '/images/Logo.png' },
+    { name: 'Javed Nihari', description: 'Iconic breakfast spot.', logo: '/images/Logo.png' },
+    { name: 'Bundu Khan', description: 'BBQ at its best.', logo: '/images/Logo.png' },
+    { name: 'Xander\'s', description: 'Modern casual dining.', logo: '/images/Logo.png' },
+    { name: 'Del Frio', description: 'Desserts & comfort food.', logo: '/images/Logo.png' },
+  ];
+
   return (
     <div>
-      {/* Navbar Component */}
       <Navbar />
 
-      {/* Banner Image */}
+      {/* Banner */}
       <div className="banner">
-        <img src="images/Center_Image.jpeg" alt="Banner Image" />
+        <img src="/images/Center_Image.jpeg" alt="Banner" />
       </div>
 
-      {/* Restaurant Info */}
-      <div className="restaurant-info">
-        <img src="images/Logo.png" className="Logo" alt="Logo" />
-        <div className="restaurant-name">Al-Habib Restaurant</div>
-        <div className="actions">
-          <button className="btn">🔔 Follow</button>
-          <button className="btn">📤 Share</button>
-        </div>
+      {/* Dropdown (Mobile Only) */}
+      <div className="dropdown-mobile">
+        <Dropdown />
       </div>
 
-      {/* Tabs */}
-      <div className="tabs">
-        <div className="tab active">Overview</div>
-        <div className="tab">Card Offers</div>
-        <div className="tab">Menu</div>
-        <div className="tab">Reviews</div>
-      </div>
-
-      {/* Description */}
-      <p className="description">
-        The ultimate combination of food and fun.
-      </p>
-
-      {/* Stats Section */}
-      <div className="stats">
-        <div className="stat blue">
-          <div className="stat-value">4</div>
-          <div className="stat-label">Deals by partners</div>
-        </div>
-        <div className="stat red">
-          <div className="stat-value">4</div>
-          <div className="stat-label">Rated by 4 users</div>
-        </div>
-        <div className="stat navy">
-          <div className="stat-value">3</div>
-          <div className="stat-label">Branches in city</div>
-        </div>
-      </div>
-
-      {/* Card Offers */}
-      <h3 className="section-title">Card Offers</h3>
-      <div className="offers">
-        <div className="offer-card">
-          <img src="images/allied.png" alt="Allied Bank" />
-          <div className="offer-info">
-            <div className="offer-title">Allied Bank</div>
-            <div className="offer-subtitle">2 Card Offers</div>
+      {/* Restaurant List */}
+      <div className="restaurant-list">
+        {allRestaurants.map((res, index) => (
+          <div className="restaurant-card" key={index}>
+            <img src={res.logo} alt="Logo" className="restaurant-card-logo" />
+            <div className="restaurant-card-details">
+              <div className="restaurant-card-name">{res.name}</div>
+              <p className="restaurant-card-desc">{res.description}</p>
+            </div>
           </div>
-          <div className="offer-badge">40%</div>
-        </div>
-        <div className="offer-card">
-          <img src="images/hbl.png" alt="HBL" />
-          <div className="offer-info">
-            <div className="offer-title">HBL Islamic Bank Limited</div>
-            <div className="offer-subtitle">1 Card Offer</div>
-          </div>
-          <div className="offer-badge">20%</div>
-        </div>
+        ))}
       </div>
     </div>
   );
