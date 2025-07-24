@@ -10,7 +10,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-left">
-          <img src="/images/Logo.png" alt="Logo" className="navbar-logo" />
+          <img src="images/Logo.png" alt="Logo" className="navbar-logo" />
           <div className="dropdown-desktop">
             <Dropdown />
           </div>
