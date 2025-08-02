@@ -10,6 +10,25 @@ const Footer = () => {
               <FaMapMarkerAlt style={{ marginRight: '8px' }} />
               Discount Finder
             </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <p style={{ color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.6' }}>
               Your ultimate companion for discovering amazing local deals and saving money on your favorite things. Find the best discounts near you with our location-based platform.
             </p>
