@@ -5,6 +5,7 @@ import DiscountCard from '../components/DiscountCard';
 import { fetchDiscountsWithState } from '../utils/api';
 import { applyFilters, getUniqueCategories, getUniqueDiscountTypes } from '../utils/geolocation';
 
+
 const Home = () => {
   const [discounts, setDiscounts] = useState([]);
   const [filteredDiscounts, setFilteredDiscounts] = useState([]);
