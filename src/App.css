@@ -66,8 +66,8 @@ html, body {
 }
 
 .restaurant-card-logo {
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 100px;
   border-radius: 6px;
   margin-right: 10px;
   object-fit: cover;
@@ -79,12 +79,12 @@ html, body {
 }
 
 .restaurant-card-name {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 .restaurant-card-desc {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #666;
   margin-top: 2px;
 }
@@ -104,8 +104,8 @@ html, body {
     padding: 8px;
   }
   .restaurant-card-logo {
-    height: 35px;
-    width: 35px;
+    height: 70px;
+    width: 70px;
   }
   .restaurant-card-name {
     font-size: 0.95rem;
