@@ -20,7 +20,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          <Link to="/" className="logo" onClick={closeMobileMenu}>
+          <Link to="/sales" className="logo" onClick={closeMobileMenu}>
             <FaMapMarkerAlt />
             Discount Finder
           </Link>
