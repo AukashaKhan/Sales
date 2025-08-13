@@ -1,0 +1,45 @@
+/* Use Home page styles for cards/grid */
+@import "../pages/Home.css";
+
+/* Only add styles unique to Discount page */
+
+/* Discount Banner */
+.discount-banner {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+}
+
+.discount-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner-overlay h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}

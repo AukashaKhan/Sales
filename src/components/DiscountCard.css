@@ -1,0 +1,134 @@
+/* DiscountPage.css */
+
+/* Page container */
+.discount-page {
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===================
+   Banner Section
+=================== */
+.discount-banner {
+  position: relative;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 4px solid #ff6f61;
+}
+
+.discount-banner .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  color: white;
+  width: 100%;
+}
+
+.discount-banner h1 {
+  font-size: 2rem;
+  margin: 0 0 5px;
+}
+
+.discount-banner p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ===================
+   Offer Details
+=================== */
+.discount-details {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.discount-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.discount-details p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.meta {
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.meta p {
+  margin: 5px 0;
+}
+
+/* ===================
+   Action Buttons
+=================== */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions button {
+  background: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.actions button:hover {
+  background: #e6594c;
+}
+
+/* ===================
+   Related Offers
+=================== */
+.related-offers {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.related-offers h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .discount-banner {
+    height: 200px;
+  }
+
+  .discount-banner h1 {
+    font-size: 1.5rem;
+  }
+
+  .discount-banner p {
+    font-size: 0.95rem;
+  }
+
+  .discount-details h2 {
+    font-size: 1.4rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
