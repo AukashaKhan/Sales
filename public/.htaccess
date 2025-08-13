@@ -9,7 +9,7 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule . /Sales/index.html [L]
+    RewriteRule . /index.html [L]
 </IfModule>
 
 # php -- BEGIN cPanel-generated handler, do not edit
