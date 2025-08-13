@@ -80,7 +80,7 @@ const LocationBanner = ({ onLocationUpdate }) => {
             <FaMapMarkerAlt />
           </div>
           <div className="location-text">
-            <strong>📍 Your Location:</strong> {location.name || `${location.latitude.toFixed(4)}, ${location.longitude.toFixed(4)}`}
+            <strong>📍 Your :</strong> {location.name || `${location.latitude.toFixed(4)}, ${location.longitude.toFixed(4)}`}
           </div>
           <button 
             className="location-button" 
