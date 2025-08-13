@@ -31,7 +31,7 @@ function App() {
 
           {/* Discount page route (navigates on card click) */}
           <Route
-            path="Sales/discount/:offerId"
+            path="/Sales/discount/:offerId"
             element={<DiscountPage />}
           />
         </Routes>
