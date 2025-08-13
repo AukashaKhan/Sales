@@ -23,10 +23,10 @@ function App() {
 
         <Routes>
           {/* Redirect root to sales page */}
-          <Route path="/" element={<Navigate to="/sales" />} />
+          {/* <Route path="/" element={<Navigate to="/sales" />} /> */}
 
           {/* Main pages */}
-          <Route path="/sales" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
