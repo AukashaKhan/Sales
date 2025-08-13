@@ -1,3 +1,5 @@
+import { ImageUrl } from "../utils/Functions";
+
 // Discount offers data structure
 export const discountOffers = [
   {
@@ -6,7 +8,7 @@ export const discountOffers = [
     description: "Valid until August 31, 2025. Use code PIZZA50 at checkout. Perfect for family dinners and group orders. Cannot be combined with other offers.",
     category: "Food",
     expiry: "2025-08-31T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "Pizza Hut - Connaught Place",
       address: "Connaught Place, New Delhi, Delhi 110001",
@@ -25,7 +27,7 @@ export const discountOffers = [
     description: "Get 30% off on all electronics at Best Buy. Limited time offer on smartphones, laptops, and accessories. Valid on select brands only.",
     category: "Electronics",
     expiry: "2025-09-15T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "Best Buy - Delhi",
       address: "Saket, New Delhi, Delhi 110017",
@@ -44,7 +46,7 @@ export const discountOffers = [
     description: "Valid at Starbucks locations. Show this offer at counter. Perfect for coffee lovers. Valid on all coffee beverages including seasonal drinks.",
     category: "Food",
     expiry: "2025-10-01T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "Starbucks - Bandra West",
       address: "Bandra West, Mumbai, Maharashtra 400050",
@@ -63,7 +65,7 @@ export const discountOffers = [
     description: "End of season sale at H&M. Valid on all clothing items including dresses, tops, and accessories. Limited stock available.",
     category: "Fashion",
     expiry: "2025-09-30T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "H&M - Phoenix MarketCity",
       address: "Phoenix MarketCity, Whitefield, Bangalore 560066",
@@ -82,7 +84,7 @@ export const discountOffers = [
     description: "Valid on all restaurants. Use code FREEDEL at checkout. No minimum order value for premium members. Valid across all cities.",
     category: "Food",
     expiry: "2025-12-31T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "Swiggy - Kolkata",
       address: "Park Street, Kolkata, West Bengal 700016",
@@ -101,7 +103,7 @@ export const discountOffers = [
     description: "Valid on all movies. Book through our app for best prices. Includes premium formats like IMAX and 4DX. Valid for all show timings.",
     category: "Entertainment",
     expiry: "2025-11-30T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "PVR Cinemas - Hyderabad",
       address: "Banjara Hills, Hyderabad, Telangana 500034",
@@ -120,7 +122,7 @@ export const discountOffers = [
     description: "New member special. Valid for first 3 months. Includes access to all facilities, group classes, and personal training sessions.",
     category: "Health",
     expiry: "2025-10-31T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "Fitness First - Lucknow",
       address: "Gomti Nagar, Lucknow, Uttar Pradesh 226010",
@@ -139,7 +141,7 @@ export const discountOffers = [
     description: "Valid on all grocery items. Use your loyalty card. Includes fresh produce, dairy, and packaged goods. Valid on minimum purchase of ₹1000.",
     category: "Grocery",
     expiry: "2025-12-31T23:59:59",
-    image: "/images/Center_Image.jpeg",
+    image: ImageUrl("Center_Image.jpeg"),
     location: {
       name: "BigBasket - Ahmedabad",
       address: "Satellite, Ahmedabad, Gujarat 380015",

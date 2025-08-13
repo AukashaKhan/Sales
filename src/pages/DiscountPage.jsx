@@ -1,5 +1,6 @@
 import React from "react";
 import "../pages/DiscountPage.css"; // We'll style same as home page
+import { ImageUrl } from "../utils/Functions";
 
 const DiscountPage = () => {
   const discounts = [
@@ -24,7 +25,7 @@ const DiscountPage = () => {
     <div className="discount-page">
       {/* Banner Section */}
       <div className="discount-banner">
-        <img src="images/Center_Image.jpeg" alt="Discounts Banner" />
+        <img src={ImageUrl("Center_Image.jpeg")} alt="Discounts Banner" />
         <div className="banner-overlay">
           <h1>Exclusive Discounts</h1>
           <p>Get the best deals from your favorite spots</p>
