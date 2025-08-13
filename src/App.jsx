@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import DiscountPage from './pages/DiscountPage';
 import './styles/main.scss';
 
+
 function App() {
   // Simulated user location (replace with geolocation logic if needed)
   const userLocation = {
@@ -15,7 +16,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename={'/Sales'}>
       <div className="App">
         {/* Navbar visible on every page */}
         <Header />
