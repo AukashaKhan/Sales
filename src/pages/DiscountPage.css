@@ -1,9 +1,4 @@
-/* Use Home page styles for cards/grid */
-@import "../pages/Home.css";
-
-/* Only add styles unique to Discount page */
-
-/* Discount Banner */
+/* Banner */
 .discount-banner {
   position: relative;
   height: 300px;
@@ -16,6 +11,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .banner-overlay {
@@ -31,15 +27,130 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
 .banner-overlay h1 {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .banner-overlay p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Filter Bar on the Right - Updated */
+.filter-bar-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin: 15px 0 25px 0;
+  flex-wrap: wrap;
+}
+
+/* Dropdown Style */
+.filter-bar-right select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 150px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover & Focus Effects */
+.filter-bar-right select:hover,
+.filter-bar-right select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 5px rgba(99, 102, 241, 0.25);
+  outline: none;
+}
+
+/* Results Info */
+.results-info {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* Offer Cards */
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.offer-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.offer-content {
+  padding: 15px;
+}
+
+.offer-content h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.offer-content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.offer-content button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.offer-content button:hover {
+  background: #4f46e5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .filter-bar-right {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .filter-bar-right select {
+    min-width: 120px;
+    font-size: 0.85rem;
+  }
 }

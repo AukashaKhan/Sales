@@ -99,12 +99,55 @@
   font-weight: 500;
 }
 
-/* Offers Grid */
+/* Offers Grid - Enhanced for new DiscountCard design */
 .offers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+/* Ensure cards maintain consistent height */
+.offers-grid > * {
+  height: 100%;
+}
+
+/* Enhanced responsive grid breakpoints */
+@media (min-width: 1400px) {
+  .offers-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .offers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .offers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .offers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .offers-grid {
+    gap: 1rem;
+    padding: 0;
+  }
 }
 
 .offer-card {
@@ -230,26 +273,44 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive Grid */
-@media (max-width: 1200px) {
-  .offers-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1024px) {
-  .offers-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* Responsive Grid - Updated for new layout */
 @media (max-width: 768px) {
-  .offers-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
   .filter-bar {
     justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem;
+  }
+  
+  .filter-btn {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .sort-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+  
+  .results-info {
+    text-align: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-bar {
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+  
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
   }
 }

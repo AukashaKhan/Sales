@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   getCategoryIcon, 
   getDiscountTypeIcon, 
@@ -17,8 +17,13 @@ const DiscountCard = ({
   userLocation, 
   onCardClick, 
   onSaveToggle,
-  showSaveButton = true 
+  showSaveButton = true,
+  isLoading = false 
 }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [imageAttempted, setImageAttempted] = useState(false);
+
   // Calculate distance if user location is available
   const distance = userLocation && offer.location 
     ? calculateDistance(
@@ -33,6 +38,33 @@ const DiscountCard = ({
   const expired = isExpired(offer.expiry);
   const expiringSoon = expiresSoon(offer.expiry);
   const isSaved = isOfferSaved(offer.id);
+
+  // Handle image load
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+    setImageAttempted(true);
+  };
+
+  // Handle image error
+  const handleImageError = () => {
+    setImageError(true);
+    setImageAttempted(true);
+  };
+
+  // Get category-based fallback image
+  const getCategoryFallbackImage = (category) => {
+    const fallbackImages = {
+      'Food': '🍕',
+      'Electronics': '📱',
+      'Fashion': '👗',
+      'Entertainment': '🎬',
+      'Health': '💪',
+      'Grocery': '🛒',
+      'Beauty': '💄',
+      'Fitness': '🏋️'
+    };
+    return fallbackImages[category] || '🎯';
+  };
 
   // Handle save/unsave offer
   const handleSaveToggle = (e) => {
@@ -59,28 +91,82 @@ const DiscountCard = ({
     return null;
   }
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="discount-card loading">
+        <div className="card-image-container">
+          <div className="card-image" style={{ background: '#f0f0f0' }} />
+        </div>
+        <div className="card-content">
+          <div style={{ height: '20px', background: '#e0e0e0', borderRadius: '4px', marginBottom: '12px' }} />
+          <div style={{ height: '16px', background: '#e0e0e0', borderRadius: '4px', marginBottom: '12px', width: '70%' }} />
+          <div style={{ height: '40px', background: '#e0e0e0', borderRadius: '4px' }} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div 
       className={`discount-card ${expiringSoon ? 'expiring-soon' : ''}`}
       onClick={handleCardClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleCardClick();
+        }
+      }}
+      aria-label={`${offer.title} - ${offer.category} offer`}
     >
       {/* Offer Image */}
       <div className="card-image-container">
-        <img 
-          src={offer.image} 
-          alt={offer.title}
-          className="card-image"
-        />
-        {expiringSoon && (
-          <div className="expiring-badge">
-            Expires Soon!
+        {!imageError ? (
+          <img 
+            src={offer.image} 
+            alt={offer.title}
+            className="card-image"
+            onLoad={handleImageLoad}
+            onError={handleImageError}
+            style={{
+              opacity: imageLoaded ? 1 : 0,
+              transition: 'opacity 0.3s ease'
+            }}
+          />
+        ) : (
+          <div className={`card-image-fallback ${offer.category.toLowerCase()}-category`}>
+            {getCategoryIcon(offer.category)}
           </div>
         )}
+        
+        {/* Loading overlay for image */}
+        {!imageLoaded && !imageError && (
+          <div 
+            className="card-image card-image-loading"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              background: 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)',
+              backgroundSize: '200% 100%',
+              animation: 'imageLoading 1.5s infinite'
+            }}
+          />
+        )}
+        
+        {expiringSoon && (
+          <div className="expiring-badge">
+            ⚡ Expires Soon!
+          </div>
+        )}
+        
         {showSaveButton && (
           <button 
             className={`save-button ${isSaved ? 'saved' : ''}`}
             onClick={handleSaveToggle}
             aria-label={isSaved ? 'Remove from saved' : 'Save offer'}
+            title={isSaved ? 'Remove from saved' : 'Save offer'}
           >
             {isSaved ? '❤️' : '🤍'}
           </button>
@@ -92,7 +178,8 @@ const DiscountCard = ({
         {/* Header */}
         <div className="card-header">
           <div className="card-title">
-            {getCategoryIcon(offer.category)} {offer.title}
+            <span className="title-icon">{getCategoryIcon(offer.category)}</span>
+            <span className="title-text">{offer.title}</span>
           </div>
           <div className="card-category">
             {offer.category}
@@ -100,31 +187,47 @@ const DiscountCard = ({
         </div>
         
         {/* Description */}
-        <div className="card-description">
-          {offer.description}
-        </div>
+        {offer.description && (
+          <div className="card-description">
+            {offer.description}
+          </div>
+        )}
         
         {/* Details */}
         <div className="card-details">
           {distance && (
             <div className="distance">
-              📍 {formatDistance(distance)}
+              <span>📍</span>
+              <span>{formatDistance(distance)}</span>
             </div>
           )}
           <div className="discount-type">
-            {getDiscountTypeIcon(offer.type)} {formatDiscount(offer.discountPercent, offer.type)}
+            <span>{getDiscountTypeIcon(offer.type)}</span>
+            <span>{formatDiscount(offer.discountPercent, offer.type)}</span>
           </div>
         </div>
 
         {/* Expiry Info */}
         <div className="card-expiry">
-          <span className="expiry-label">Valid until:</span>
-          <span className="expiry-date">{new Date(offer.expiry).toLocaleDateString()}</span>
+          <span className="expiry-label">Valid until</span>
+          <span className="expiry-date">
+            {new Date(offer.expiry).toLocaleDateString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric'
+            })}
+          </span>
         </div>
         
         {/* Actions */}
         <div className="card-actions">
-          <button className="action-button primary">
+          <button 
+            className="action-button primary"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleCardClick();
+            }}
+          >
             View Details
           </button>
           {offer.link && (

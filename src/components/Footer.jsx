@@ -62,7 +62,7 @@ const Footer = () => {
                 <FaTwitter />
               </a>
             </div>
-            <p style={{ color: 'rgba(255, 255, 255, 0.6)', marginTop: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.6)', marginTop: '0.5rem', fontSize: '0.9rem' }}>
               Stay updated with the latest deals and offers!
             </p>
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            © 2024 Discount Finder. Made with <FaHeart style={{ color: '#ef4444', margin: '0 4px' }} /> for savings enthusiasts.
+            © 2025 Discount Finder. Made with <FaHeart style={{ color: '#ef4444', margin: '0 4px' }} /> for savings enthusiasts.
           </p>
         </div>
       </div>
